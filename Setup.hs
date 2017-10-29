@@ -201,7 +201,7 @@ pcHook = simpleUserHooks { confHook = confHookM, buildHook = buildHookM }
           let cdt = fromJust $ condLibrary gpd
               lib = condTreeData cdt
               lbi = libBuildInfo lib
-              vRange = withinVersion $ makeVersion [3,8]
+              vRange = withinVersion $ makeVersion [5,0,0]
               lbi' = lbi { pkgconfigDepends = pkgconfigDepends lbi ++
                                               [Dependency (PackageName "llvm") vRange] }
               lib' = lib { libBuildInfo = lbi' }

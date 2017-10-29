@@ -51,8 +51,8 @@ runClangT f = runResourceT . unClangT $ f
 -- | Runs a monadic computation with libclang and frees all the
 -- resources allocated by that computation immediately.
 clangScope :: ClangBase m => (forall s. ClangT s m a) -> ClangT s' m a
-clangScope = lift . runClangT
-{-# INLINEABLE clangScope #-}
+clangScope f = lift (runClangT f)
+{-# inlineable clangScope #-}
 
 clangAllocate :: ClangBase m => IO a -> (a -> IO ()) -> ClangT s m (ReleaseKey, a)
 clangAllocate = allocate

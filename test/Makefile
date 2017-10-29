@@ -16,7 +16,7 @@ test: all
 	$(CC) $(CFLAGS) $(LLVM_CFLAGS) -o $@ $< $(LDFLAGS) $(LIBS)
 
 %_hs : %.hs
-	cd .. && cabal exec -- ghc -o test/$@ test/$<
+	cd .. && stack exec -- ghc -o test/$@ test/$<
 
 clean:
 	rm *_c *_hs *.o *.hi
